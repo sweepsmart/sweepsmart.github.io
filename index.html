@@ -1,12 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Hola</title>
+    <meta charset="UTF-8">
+    <title>Sweep Smart</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
 </head>
+
 <body>
-  <h1>Hola amiguitos!</h1>
-  <p>Mi nobre es Jessie.</p>
-  <footer>SweepSmart 2020</footer>
+<div id="header">
+    <h1>STREET SWEEPING HELPS KEEP THE CITY OF OAKLAND CLEAN!</h1>
+</div>
+
+<div id="stats" class="section_block">
+    <p>1. Statistics</p>
+    <h3>During 2019, 20 Street Sweeping Department in the City of Oakland had:</h3>
+    <svg></svg>
+</div>
+
+<div class="section_block dark_block">
+    <h1>However...</h1>
+    <h3>Vehicles parked on the street during street sweeping hours make it impossible to complete the street sweeping
+        activity.</h3>
+</div>
+
+<div id="isotypes" class="section_block">
+    <p>2. Tickets Facts</p>
+    <p>Street Sweeping parking violations account for the vast majority of parking tickets among all parking violation
+        categories in 2019.*</p>
+</div>
+
+<div class="section_block dark_block">
+    <h1>Who is getting ticketed?</h1>
+    <p>Street Sweeping parking violations are not evenly distributed across different neighborhoods. Some areas incur
+        more street sweeping tickets than others. And the density of street sweeping tickets are different between day
+        time and night time.</p>
+</div>
+
+<div id="heatmap" class="section_block">
+    <p>3. Heatmap</p>
+    <h3>A heat map of the number of street sweeping violation ticket issued in 2019<br>
+        The darker the color, the more street sweeping tickets there are in the area.</h3>
+</div>
+
+<div class="section_block dark_block">
+    <h1>Why are they different?</h1>
+    <p>Sometimes the ticket intensity is related to the street sweeping schedule frequency, i.e. the more frequent the
+        street is swept, the more parking violations related to street sweeping happened. However, that is not always
+        the case.</p>
+    <p>Let’s take a closer look at the scheduled street sweeping frequency and the ticket density in your
+        neighborhood. </p>
+</div>
+
+<div id="maps" class="section_block">
+    <p>4. Maps</p>
+</div>
+
+<div id="conclusion" class="section_block dark_block">
+    <h1>Schedule change?</h1>
+</div>
+
+<footer>
+    <p>SweepSmart 2020</p>
+    <p>UC-Berkeley School of Information, BCOT Team</p>
+</footer>
 </body>
 </html>
