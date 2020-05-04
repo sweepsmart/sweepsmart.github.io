@@ -1,0 +1,26 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Montserrat Black', sans-serif;
+    color: #ffffff;
+}
+
+.section_block {
+    padding: 10% 20%;
+}
+
+.dark_block {
+    background-color: #006632;
+    color: #ffffff;
+}
+
+#header {
+    background: url(images/background.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 50% 20% 10% 20%;
+}
