@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <title>Sweep Smart</title>
 
-    <link rel="stylesheet" href="style.css">
-
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,18 +26,42 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
 
+    <!-- Document script & stylesheet -->
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 
 <body>
-<div id="header">
-    <h1>STREET SWEEPING HELPS KEEP THE CITY OF OAKLAND CLEAN!</h1>
+<div id="splash">
+    <h1>STREET SWEEPING HELPS KEEP THE CITY OF OAKLAND <span class="highlight">CLEAN</span>!</h1>
 </div>
+<img src="images/background.png">
 
 <div id="stats" class="section_block">
-    <p>1. Statistics</p>
-    <h3>During 2019, 20 Street Sweeping Department in the City of Oakland had:</h3>
-    <svg></svg>
+    <h5><span class="header">1. Statistics</span></h5>
+    <p>Street Sweeping Unit is one of the most important units in the City of Oakland that works to make sure our living
+        environment is clean and healthy. Streets sweeping cleans every stree, every corner of the city, even the most
+        unvisited areas. </p>
+    <h3>During 2019, <span class="highlight">20</span> Street Sweeping Department in the City of Oakland had:</h3>
+    <div class="container graphic">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <p>Worked for</p>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <img src="images/calendar.png">
+                <p class="highlight">353</p>
+                <p>days of cleaning</p>
+            </div>
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <h2>=</h2>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <p><span class="highlight-secondary">97%</span> of calendar year</p>
+                <p>day <span class="icon"><img src="images/day.png"></span> and night <span class="icon"><img src="images/night.png"></span></p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="section_block dark_block">
@@ -68,30 +90,35 @@
     <div class='tableauPlaceholder' id='viz1588893359135' style='position: relative'>
         <noscript>
             <a href='#'>
-                <img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StreetSweepingViolationinOakland2019&#47;Sheet2&#47;1_rss.png' style='border: none' />
+                <img alt=' '
+                     src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StreetSweepingViolationinOakland2019&#47;Sheet2&#47;1_rss.png'
+                     style='border: none'/>
             </a>
         </noscript>
-        <object class='tableauViz'  style='display:none;'>
-            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-            <param name='embed_code_version' value='3' /> 
-            <param name='path' value='views&#47;StreetSweepingViolationinOakland2019&#47;Sheet2?:embed=y&amp;:display_count=y&amp;publish=yes' />
-            <param name='toolbar' value='yes' />
-            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StreetSweepingViolationinOakland2019&#47;Sheet2&#47;1.png' />
-            <param name='animate_transition' value='yes' />
-            <param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' />
-            <param name='display_overlay' value='yes' />
-            <param name='display_count' value='yes' />
-            <param name='filter' value='publish=yes' />
+        <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/>
+            <param name='embed_code_version' value='3'/>
+            <param name='path'
+                   value='views&#47;StreetSweepingViolationinOakland2019&#47;Sheet2?:embed=y&amp;:display_count=y&amp;publish=yes'/>
+            <param name='toolbar' value='yes'/>
+            <param name='static_image'
+                   value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;St&#47;StreetSweepingViolationinOakland2019&#47;Sheet2&#47;1.png'/>
+            <param name='animate_transition' value='yes'/>
+            <param name='display_static_image' value='yes'/>
+            <param name='display_spinner' value='yes'/>
+            <param name='display_overlay' value='yes'/>
+            <param name='display_count' value='yes'/>
+            <param name='filter' value='publish=yes'/>
         </object>
     </div>
-    <script type='text/javascript'>                    
-        var divElement = document.getElementById('viz1588893359135');                    
-        var vizElement = divElement.getElementsByTagName('object')[0];                    
-        vizElement.style.width='100%';
-        vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    
-        var scriptElement = document.createElement('script');                    
-        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    
-        vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588893359135');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
     </script>
 </div>
 
