@@ -1,7 +1,7 @@
 
 /* Make the miles chart under statistics section */
 function milesChart() {
-    d3.select("#stats").style("color", "red");
+    // d3.select("#stats").style("color", "red");
 }
 
 /* Make the garbage dumped chart under statistics seciton */
