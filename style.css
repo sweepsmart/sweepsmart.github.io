@@ -65,6 +65,46 @@ span.icon img {
     background-color: #003D20;
     color: #ffffff;
 }
+/********* Below are classes for section 2 d3 animation ticket barchart **********************/
+.row-title {
+    vertical-align: bottom;
+    padding-bottom: 65px;
+    padding-right: 20px;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+
+    text-align: center;
+    color: #000000;
+}
+
+.ticket-bar-title {
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 49px;
+}
+
+.ticketIsotype {
+    text-align: right;
+}
+
+.footnote2 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 10px;
+    line-height: 17px;
+    /* identical to box height */
+
+    text-align: center;
+
+    color: #9E9E9E;
+}
+
+
+/******************************** end of section 2 **************************************/
+
 
 #splash {
     /*background: url(images/background.png) no-repeat center center;*/
