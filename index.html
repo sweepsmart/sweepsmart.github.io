@@ -42,14 +42,14 @@
     <p>Street Sweeping Unit is one of the most important units in the City of Oakland that works to make sure our living
         environment is clean and healthy. Streets sweeping cleans every stree, every corner of the city, even the most
         unvisited areas. </p>
-    <h3>During 2019, <span class="highlight">20</span> Street Sweeping Department in the City of Oakland had:</h3>
+    <h4>During 2019, <span class="highlight">20</span> Street Sweeping Department in the City of Oakland had:</h4>
     <div class="container graphic">
-        <div class="row align-items-center">
+        <div class="row align-items-center graphical_content">
             <div class="col-12 col-sm-2 justify-content-center text-center">
                 <p>Worked for</p>
             </div>
             <div class="col-12 col-sm-4 justify-content-center text-center">
-                <img src="images/calendar.png">
+                <img src="images/calendar.png" style="width: 75px">
                 <p class="highlight">353</p>
                 <p>days of cleaning</p>
             </div>
@@ -58,7 +58,44 @@
             </div>
             <div class="col-12 col-sm-4 justify-content-center text-center">
                 <p><span class="highlight-secondary">97%</span> of calendar year</p>
-                <p>day <span class="icon"><img src="images/day.png"></span> and night <span class="icon"><img src="images/night.png"></span></p>
+                <p>day <span class="icon"><img src="images/day.png"></span> and night <span class="icon"><img
+                        src="images/night.png"></span></p>
+            </div>
+        </div>
+        <div class="row align-items-center graphical_content">
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <p>Swept</p>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <img src="images/road.png" style="width: 75px">
+                <p class="highlight">44,800</p>
+                <p>miles of road</p>
+            </div>
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <h2>=</h2>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <p><span class="highlight-secondary">15.5</span> trips</p>
+                <p><span class="icon"><img src="images/westcoast.png"></span><span class="icon"><img
+                        src="images/path.png"></span><span class="icon"><img src="images/eastcoast.png"></span></p>
+                <p>from West Coast to East Coast</p>
+            </div>
+        </div>
+        <div class="row align-items-center graphical_content">
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <p>Cleaned</p>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <img src="images/dump.png" style="width: 75px">
+                <p class="highlight">1,530</p>
+                <p>tons of garbages</p>
+            </div>
+            <div class="col-12 col-sm-2 justify-content-center text-center">
+                <h2>=</h2>
+            </div>
+            <div class="col-12 col-sm-4 justify-content-center text-center">
+                <p><span class="highlight-secondary">11,769</span></p>
+                <p>standard household trash bin <span class="icon"><img src="images/trash.png"></span></p>
             </div>
         </div>
     </div>
@@ -66,20 +103,36 @@
 
 <div class="section_block dark_block">
     <h1>However...</h1>
-    <h3>Vehicles parked on the street during street sweeping hours make it impossible to complete the street sweeping
-        activity.</h3>
+    <h4>Vehicles parked on the street during street sweeping hours make it impossible to complete the street sweeping
+        activity.</h4>
+    <div class="row align-items-end graphical_content">
+        <div class="col-12 col-sm-5">
+            <p>Therefore, parking violation are enforced during street sweeping hours to minimize interruption to street
+                sweeping. However, there are still many vehicles blocking the streets during the scheduled street
+                sweeping hours
+                ...</p>
+        </div>
+        <div class="col-12 col-sm-7">
+            <img src="images/illustration.png" style="max-width: 75%">
+        </div>
+    </div>
 </div>
 
 <div id="isotypes" class="section_block">
-    <p>Number of Parking Tickets of Top 5 Parking Violation Types</p>
+    <h5><span class="header">2. Ticket Facts</span></h5>
     <p>Street Sweeping parking violations account for the vast majority of parking tickets among all parking violation
         categories in 2019.*</p>
+    <div class="graphic" id="isotype_chart">
+        <h3>Number of Parking Tickets of Top 5 Parking Violation Types</h3>
+        <svg></svg> <!-- TODO: Insert Isotype here-->
+    </div>
 
-    <table> 
-    <tr class="row-title"> </tr>
-    <tr class="d3-animation"> </tr>
-    <tr class="legend-text"> </tr>
-    </table>    
+
+    <table>
+        <tr class="row-title"></tr>
+        <tr class="d3-animation"></tr>
+        <tr class="legend-text"></tr>
+    </table>
 </div>
 
 <div class="section_block dark_block">
@@ -90,10 +143,10 @@
 </div>
 
 <div id="heatmap" class="section_block">
-    <p>3. Heatmap</p>
-    <h3>A heat map of the number of street sweeping violation ticket issued in 2019<br>
-        The darker the color, the more street sweeping tickets there are in the area.</h3>
-    <div class='tableauPlaceholder' id='viz1588893359135' style='position: relative'>
+    <h5><span class="header">3. Heatmap</span></h5>
+    <p>A heat map of the number of street sweeping violation ticket issued in 2019. The darker the color, the more
+        street sweeping tickets there are in the area.</p>
+    <div class='tableauPlaceholder graphic' id='viz1588893359135' style='position: relative'>
         <noscript>
             <a href='#'>
                 <img alt=' '
@@ -138,23 +191,50 @@
 </div>
 
 <div id="maps" class="section_block">
-    <h3>Sweeping Frequency</h3>
-    <h4>This map shows the monthly frequency of sweeping routes. Notice certain regions tend to have more frequently scheduled sweeping.<br>
-    Click around to explore the different neighborhoods!</h4>
-     <embed src="monthly_freq.html" width="1000" height="700"> 
-        <br><br>
-    <h3>Ticketing Patterns</h3>
-    <h4>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer colors indicate a higher density of tickets.</h4>
-     <embed src="tickets_per_mile.html" width="1000" height="700"> 
+    <h5><span class="header">4. Tickets Patterns</span></h5>
+    <p>Is there any correlations between street sweeping frequency and the number of tickets? Can we find any patterns
+        between them? Let's take a look at two maps of street sweeping frequency and ticket density</p>
+    <div class="container graphic">
+        <div class="row align-items-center">
+            <div class="col-8" style="text-align: center">
+                <h3>Sweeping Frequency</h3>
+                <p>This map shows the monthly frequency of sweeping routes. Notice certain regions tend to have more
+                    frequently
+                    scheduled sweeping.<br>
+                    Click around to explore the different neighborhoods!</p>
+                <embed src="monthly_freq.html" width="100%" height="500px">
+            </div>
+            <div class="col-4">
+                <h4>What do you think?</h4>
+                <p>My street is swept too often.</p>
+            </div>
+        </div>
+        <div class="row align-items-center graphical_content">
+            <div class="col-8" style="text-align: center">
+                <h3>Ticketing Patterns</h3>
+                <p>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer
+                    colors indicate a higher density of tickets.</p>
+                <embed src="tickets_per_mile.html" width="100%" height="500px">
+            </div>
+            <div class="col-4">
+                <h4>What do you think?</h4>
+                <p>My neighborhood receive more street sweeping tickets than I thought.</p>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div id="conclusion" class="section_block dark_block">
     <h1>Schedule change?</h1>
+    <h4>Have a question about the street sweeping schedule in your area?</h4>
+    <h4>Do you know that you can request to change the street sweeping schedule, to increase or decrease street sweeping
+        frequency? </h4>
 </div>
 
-<footer>
+<div class="footer section_block">
     <p>SweepSmart 2020</p>
     <p>UC-Berkeley School of Information, BCOT Team</p>
-</footer>
+    <p>All Rights Reserved</p>
+</div>
 </body>
 </html>
