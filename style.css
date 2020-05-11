@@ -19,9 +19,12 @@ img {
 
 span.icon {
     display: inline;
-    width: 30px;
-    height: 30px;
     padding: 5px;
+}
+
+span.icon img {
+    height: 30px;
+    width: auto;
 }
 
 .header {
@@ -29,6 +32,10 @@ span.icon {
     font-weight: bold;
     border-bottom: 5px solid #8DCCAC;
     border-radius: 5px;
+}
+
+.footer {
+    text-align: center;
 }
 
 .highlight {
@@ -43,15 +50,19 @@ span.icon {
 }
 
 .graphic {
-    padding: 10% 0;
+    padding-top: 10%;
+}
+
+.graphical_content {
+    padding-top: 5%;
 }
 
 .section_block {
-    padding: 10% 20%;
+    padding: 5% 20%;
 }
 
 .dark_block {
-    background-color: #006632;
+    background-color: #003D20;
     color: #ffffff;
 }
 
@@ -62,4 +73,9 @@ span.icon {
     /*-o-background-size: cover;*/
     /*background-size: cover;*/
     padding: 5% 20% 0 20%;
+}
+
+#isotype_chart {
+    align-items: center;
+    text-align: center;
 }
