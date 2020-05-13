@@ -43,7 +43,7 @@
         environment in Oakland is clean and healthy. Street sweeping cleans streets in every corner of the city, even the most
         unvisited areas. </p>
     <h4>During 2019, <span class="highlight">20</span> operators in the Street Sweeping Department in the City of Oakland:</h4>
-    <div class="container graphic">
+    <div class="container">
         <div class="row align-items-center graphical_content">
             <div class="col-12 col-sm-2 justify-content-center text-center">
                 <p>Worked for</p>
@@ -283,7 +283,7 @@
     <h5><span class="header">3. Heatmap</span></h5>
     <p>A heat map of the number of street sweeping violation ticket issued in 2019. The darker the color, the more
         street sweeping tickets there are in the area.</p>
-    <div class='tableauPlaceholder graphic' id='viz1588893359135' style='position: relative'>
+    <div class='tableauPlaceholder graphical_content' id='viz1588893359135' style='position: relative'>
         <noscript>
             <a href='#'>
                 <img alt=' '
@@ -331,8 +331,8 @@
     <h5><span class="header">4. Tickets Patterns</span></h5>
     <p>Is there any correlation between street sweeping frequency and the number of tickets? Can we find any patterns
         between them? Let's take a look at two maps of street sweeping frequency and ticket density.</p>
-    <div class="container graphic">
-        <div class="row align-items-center">
+    <div class="container graphical_content">
+        <div class="row align-items-end">
             <div class="col-8" style="text-align: center">
                 <h3>Sweeping Frequency</h3>
                 <p>This map shows the monthly frequency of sweeping routes. Notice certain regions are scheduled more frequently.<br>
@@ -341,24 +341,28 @@
                 <embed src="monthly_freq.html" width="100%" height="500px">
             </div>
             <!--<div class="col-1"></div>-->
-            <div class="col-4">
+            <div class="col-4 justify-content-center">
                 <h5 style="color: #006632; font-weight: bold">What do you think?</h5>
                 <p>Is your street swept more or less often than you originally thought?</p>
-                <button class="btn btn-success" id="sw_more">More often</button>
-                <button class="btn btn-primary" id="sw_less">Less often</button>
-                <svg id="pie_1" width="400" height="400"></svg>
+                <button class="poll_btn btn btn-outline-success" id="sw_more">More often</button>
+                <button class="poll_btn btn btn-outline-success" id="sw_less">Less often</button>
+                <svg id="pie_1" width="200" height="200"></svg>
+                <div id="legend_block_1">
+                    <p><span class="legend" style="background-color: #006632"></span>More often</p>
+                    <p><span class="legend" style="background-color: #BBD06E"></span>Less often</p>
+                </div>
 
                 <script>
                     var data1 = [1, 1];
-                    var data_labels1 = ["More","Less"];
+                    // var data_labels1 = ["More","Less"];
 
                     var svg1 = d3.select("#pie_1"),
                         width = svg1.attr("width"),
                         height = svg1.attr("height"),
                         radius = Math.min(width, height) / 2,
-                        g1 = svg1.append("g").attr("transform", "translate(" + width / 4 + "," + height / 4 + ")");
+                        g1 = svg1.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-                    var color = d3.scaleOrdinal(['#4daf4a', '#377eb8']);
+                    var color = d3.scaleOrdinal(['#006632', '#BBD06E']);
 
                     function change1() {
                         var pie1 = d3.pie();
@@ -380,7 +384,7 @@
                             .attr("d", arc1);
 
                         var labels1 = g1.selectAll("arc")
-						  .data(pie1(data_labels1))
+						  // .data(pie1(data_labels1))
 						  .enter()
 						  .append("text")
 						  .text(function(d){ return ""+d.data})
@@ -392,6 +396,7 @@
                     function bye_button1() {
                         sw_more.style.display = "none";
                         sw_less.style.display = "none";
+                        legend_block_1.style.display = "block";
                     }
 
                     d3.select("button#sw_more")
@@ -411,36 +416,40 @@
                 </script>
             </div>
         </div>
-        <div class="row align-items-center graphical_content">
+
+        <div class="row align-items-end graphical_content">
             <div class="col-8" style="text-align: center">
                 <h3>Ticketing Patterns</h3>
                 <p>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer
                     colors indicate a higher density of tickets.</p>
-                <embed src="cites_legend_h.png" width="500px" height="100%"
-                =>
+                <embed src="cites_legend_h.png" width="500px" height="100%">
                 <embed src="tickets_per_mile.html" width="100%" height="500px">
             </div>
             <!--<div class="col-1"></div> -->
-            <div class="col-4">
+            <div class="col-4 justify-content-center">
                 <h5 style="color: #006632; font-weight: bold;">What do you think?</h5>
                 <p>Has your street received more or fewer tickets than you originally thought?</p>
 
-                <button class="btn btn-success" id="num_more">More tickets</button>
-                <button class="btn btn-primary" id="num_less">Fewer tickets</button>
-                <svg id="pie_2" width="400" height="400"></svg>
-                <svg id="answer2"></svg>
+                <button class="poll_btn btn btn-outline-success" id="num_more">More tickets</button>
+                <button class="poll_btn btn btn-outline-success" id="num_less">Fewer tickets</button>
+                <svg id="pie_2" width="200" height="200"></svg>
+                <div id="legend_block_2">
+                    <p><span class="legend" style="background-color: #006632"></span>More tickets</p>
+                    <p><span class="legend" style="background-color: #BBD06E"></span>Less tickets</p>
+                </div>
+<!--                <svg id="answer2"></svg>-->
                 
                 <script>
                     var data2 = [1, 1];
-                    var data_labels2 = ["More","Fewer"];
+                    // var data_labels2 = ["More","Fewer"];
 
                     var svg2 = d3.select("#pie_2"),
                         width = svg2.attr("width"),
                         height = svg2.attr("height"),
                         radius = Math.min(width, height) / 2,
-                        g2 = svg2.append("g").attr("transform", "translate(" + width / 4 + "," + height / 4 + ")");
+                        g2 = svg2.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-                    var color = d3.scaleOrdinal(['#4daf4a', '#377eb8']);
+                    var color = d3.scaleOrdinal(['#006632', '#BBD06E']);
 
                     function change2() {
                         var pie2 = d3.pie();
@@ -462,7 +471,7 @@
                             });
 
                         var labels2 = g2.selectAll("arc")
-						  .data(pie2(data_labels2))
+						  // .data(pie2(data_labels2))
 						  .enter()
 						  .append("text")
 						  .text(function(d){ return ""+d.data})
@@ -475,6 +484,7 @@
                     function bye_button2() {
                         num_more.style.display = "none";
                         num_less.style.display = "none";
+                        legend_block_2.style.display = "block";
                     }
 
                     d3.select("button#num_more")
@@ -499,7 +509,7 @@
 <div id="conclusion" class="section_block dark_block">
     <h1>You have options!</h1>
     <h4>Do you think your neighborhood's sweeping schedule is unreasonable? You can request to change the street sweeping schedule! </h4>
-    <div class="container graphic">
+    <div class="container graphical_content">
         <div class="row align-items-center">
             <div class="col-12 col-sm-6 justify-content-center text-center">
                 <img src="images/broom.png" style="max-height: 85%">
