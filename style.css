@@ -88,7 +88,8 @@ span.icon img {
 }
 
 .ticketIsotype {
-    text-align: right;
+    font-weight: 700;
+    color: dimgrey;
 }
 
 .footnote2 {
