@@ -39,8 +39,8 @@
 
 <div id="stats" class="section_block">
     <h5><span class="header">1. Statistics</span></h5>
-    <p>Street Sweeping Unit is one of the most important units in the City of Oakland that works to make sure our living
-        environment is clean and healthy. Streets sweeping cleans every stree, every corner of the city, even the most
+    <p>The Street Sweeping Unit is one of the most important units in the City of Oakland. It works to make sure the living
+        environment in Oakland is clean and healthy. Street sweeping cleans streets in every corner of the city, even the most
         unvisited areas. </p>
     <h4>During 2019, <span class="highlight">20</span> Street Sweeping Department in the City of Oakland had:</h4>
     <div class="container graphic">
@@ -88,7 +88,7 @@
             <div class="col-12 col-sm-4 justify-content-center text-center">
                 <img src="images/dump.png" style="width: 75px">
                 <p class="highlight">1,530</p>
-                <p>tons of garbages</p>
+                <p>tons of garbage</p>
             </div>
             <div class="col-12 col-sm-2 justify-content-center text-center">
                 <h2>=</h2>
@@ -107,7 +107,7 @@
         activity.</h4>
     <div class="row align-items-end graphical_content">
         <div class="col-12 col-sm-5">
-            <p>Therefore, parking violation are enforced during street sweeping hours to minimize interruption to street
+            <p>Therefore, parking violations are enforced during street sweeping hours to minimize interruption to street
                 sweeping. However, there are still many vehicles blocking the streets during the scheduled street
                 sweeping hours
                 ...</p>
@@ -273,9 +273,9 @@
 </div>
 
 <div class="section_block dark_block">
-    <h1>Who is getting ticketed?</h1>
+    <h1>Which areas are getting ticketed?</h1>
     <p>Street Sweeping parking violations are not evenly distributed across different neighborhoods. Some areas incur
-        more street sweeping tickets than others. And the density of street sweeping tickets are different between day
+        more street sweeping tickets than others. And the density of street sweeping tickets differs between day
         time and night time.</p>
 </div>
 
@@ -319,9 +319,9 @@
 </div>
 
 <div class="section_block dark_block">
-    <h1>Why are they different?</h1>
-    <p>Sometimes the ticket intensity is related to the street sweeping schedule frequency, i.e. the more frequent the
-        street is swept, the more parking violations related to street sweeping happened. However, that is not always
+    <h1>Why are some areas ticketed more?</h1>
+    <p>Sometimes the ticket density is related to the street sweeping schedule. That is, the more frequently the
+        street is swept, the the higher the number of street sweeping violations. However, that is not always
         the case.</p>
     <p>Let’s take a closer look at the scheduled street sweeping frequency and the ticket density in your
         neighborhood. </p>
@@ -329,19 +329,18 @@
 
 <div id="maps" class="section_block">
     <h5><span class="header">4. Tickets Patterns</span></h5>
-    <p>Is there any correlations between street sweeping frequency and the number of tickets? Can we find any patterns
+    <p>Is there any correlation between street sweeping frequency and the number of tickets? Can we find any patterns
         between them? Let's take a look at two maps of street sweeping frequency and ticket density.</p>
     <div class="container graphic">
         <div class="row align-items-center">
-            <div class="col-7" style="text-align: center">
+            <div class="col-8" style="text-align: center">
                 <h3>Sweeping Frequency</h3>
-                <p>This map shows the monthly frequency of sweeping routes. Notice certain regions tend to have more
-                    frequently scheduled sweeping.<br>
+                <p>This map shows the monthly frequency of sweeping routes. Notice certain regions are scheduled more frequently.<br>
                     Click around to explore the different neighborhoods!</p>
                 <embed src="month_freq_h.png" width="650px" height="100%">
                 <embed src="monthly_freq.html" width="100%" height="500px">
             </div>
-            <div class="col-1"></div>
+            <!--<div class="col-1"></div>-->
             <div class="col-4">
                 <h5 style="color: #006632; font-weight: bold">What do you think?</h5>
                 <p>Is your street swept more or less often than you originally thought?</p>
@@ -351,6 +350,7 @@
 
                 <script>
                     var data1 = [1, 1];
+                    var data_labels1 = ["More","Less"];
 
                     var svg1 = d3.select("#pie_1"),
                         width = svg1.attr("width"),
@@ -365,7 +365,7 @@
 
                         var arc1 = d3.arc()
                             .innerRadius(0)
-                            .outerRadius(100);
+                            .outerRadius(80);
 
                         var arcs1 = g1.selectAll("arc")
                             .data(pie1(data1))
@@ -378,6 +378,15 @@
                                 return color(i);
                             })
                             .attr("d", arc1);
+
+                        var labels1 = g1.selectAll("arc")
+						  .data(pie1(data_labels1))
+						  .enter()
+						  .append("text")
+						  .text(function(d){ return ""+d.data})
+						  .attr("transform", function(d) { return "translate(" + arc1.centroid(d) + ")";  })
+						  .style("text-anchor", "middle")
+						  .style("font-size", 5)
                     }
 
                     function bye_button1() {
@@ -403,7 +412,7 @@
             </div>
         </div>
         <div class="row align-items-center graphical_content">
-            <div class="col-7" style="text-align: center">
+            <div class="col-8" style="text-align: center">
                 <h3>Ticketing Patterns</h3>
                 <p>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer
                     colors indicate a higher density of tickets.</p>
@@ -411,7 +420,7 @@
                 =>
                 <embed src="tickets_per_mile.html" width="100%" height="500px">
             </div>
-            <div class="col-1"></div>
+            <!--<div class="col-1"></div> -->
             <div class="col-4">
                 <h5 style="color: #006632; font-weight: bold;">What do you think?</h5>
                 <p>Has your street received more or fewer tickets than you originally thought?</p>
@@ -419,9 +428,11 @@
                 <button class="btn btn-success" id="num_more">More tickets</button>
                 <button class="btn btn-primary" id="num_less">Fewer tickets</button>
                 <svg id="pie_2" width="400" height="400"></svg>
-
+                <svg id="answer2"></svg>
+                
                 <script>
                     var data2 = [1, 1];
+                    var data_labels2 = ["More","Fewer"];
 
                     var svg2 = d3.select("#pie_2"),
                         width = svg2.attr("width"),
@@ -436,7 +447,7 @@
 
                         var arc2 = d3.arc()
                             .innerRadius(0)
-                            .outerRadius(100);
+                            .outerRadius(80);
 
                         var arcs2 = g2.selectAll("arc")
                             .data(pie2(data2))
@@ -445,10 +456,20 @@
                             .attr("class", "arc")
 
                         arcs2.append("path")
+                        	.attr("d", arc2)
                             .attr("fill", function (d, i) {
                                 return color(i);
-                            })
-                            .attr("d", arc2);
+                            });
+
+                        var labels2 = g2.selectAll("arc")
+						  .data(pie2(data_labels2))
+						  .enter()
+						  .append("text")
+						  .text(function(d){ return ""+d.data})
+						  .attr("transform", function(d) { return "translate(" + arc2.centroid(d) + ")";  })
+						  .style("text-anchor", "middle")
+						  .style("font-size", 5)
+
                     }
 
                     function bye_button2() {
@@ -476,15 +497,13 @@
 </div>
 
 <div id="conclusion" class="section_block dark_block">
-    <h1>Schedule change?</h1>
-    <h4>Have a question about the street sweeping schedule in your area?</h4>
-    <h4>Do you know that you can request to change the street sweeping schedule, to increase or decrease street sweeping
-        frequency? </h4>
+    <h1>You have options!</h1>
+    <h4>Do you think your neighborhood's sweeping schedule is unreasonable? You can request to change the street sweeping schedule! </h4>
     <div class="container graphic">
         <div class="row align-items-center">
             <div class="col-12 col-sm-6 justify-content-center text-center">
                 <img src="images/broom.png" style="max-height: 85%">
-                <p class="graphical_content">For more information and services about street sweeping</p>
+                <p class="graphical_content">For more information about street sweeping services</p>
                 <button type="button" class="btn btn-light btn-lg"
                         onclick="location.href='https://www.oaklandca.gov/topics/street-sweeping'">View More</button>
             </div>
