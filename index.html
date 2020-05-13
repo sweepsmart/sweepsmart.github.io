@@ -124,13 +124,13 @@
         categories in 2019.</p>
     <div id="isotype_chart">
         <h3 class="ticket-bar-title" id="scroll-to">Number of Parking Tickets of Top 5 Parking Violation Types*</h3>
-        <p> </p>
+        <p></p>
         <table> 
             <tr><td>  </td> <td class="ticketIsotype"> <img src="images/parking_ticket.png"> = 1,000 parking tickets </td></tr>
             <tr>
         <td class="row-title"> Parking Violations </td>
         <td class="d3-animation"> 
-            <svg width="1200", height="900"></svg> <!-- TODO: Insert Isotype here-->
+            <svg id="isotype_bar" width="1200", height="900"></svg> <!-- TODO: Insert Isotype here-->
         <script>
             {
 
@@ -144,7 +144,7 @@
                     console.log("section 2 arrived.")
                        // Do some stuff here ..
 
-                  const container = d3.select("svg");
+                  const container = d3.select("#isotype_bar");
                   const imageLink = 'https://image.flaticon.com/icons/svg/708/708944.svg';
                   const imageHeight = 21
                  
@@ -269,7 +269,7 @@
 
     <p class="footnote2"> *Parking violation data based on Feb - Dec 2019 data from https://data.oaklandnet.com/dataset/Parking-Citations-2019/hzn4-3jp4 </p>
     </div>
-    
+
 </div>
 
 <div class="section_block dark_block">
@@ -333,7 +333,7 @@
         between them? Let's take a look at two maps of street sweeping frequency and ticket density.</p>
     <div class="container graphic">
         <div class="row align-items-center">
-            <div class="col-8" style="text-align: center">
+            <div class="col-7" style="text-align: center">
                 <h3>Sweeping Frequency</h3>
                 <p>This map shows the monthly frequency of sweeping routes. Notice certain regions tend to have more
                     frequently scheduled sweeping.<br>
@@ -341,135 +341,133 @@
                 <embed src="month_freq_h.png" width="650px" height="100%">
                 <embed src="monthly_freq.html" width="100%" height="500px">
             </div>
+            <div class="col-1"></div>
             <div class="col-4">
-                <h5>Is your street swept more or less often than you originally thought?</h5>
-                <div class="buttons" style="width: 300px; text-align: center;">
-                    <button id="sw_more" style="width:160px;">More often</button>
-                    <br>
-                    <button id="sw_less" style="width:160px;">Less often</button>
-                </div>
+                <h5 style="color: #006632; font-weight: bold">What do you think?</h5>
+                <p>Is your street swept more or less often than you originally thought?</p>
+                <button class="btn btn-success" id="sw_more">More often</button>
+                <button class="btn btn-primary" id="sw_less">Less often</button>
+                <svg id="pie_1" width="400" height="400"></svg>
 
                 <script>
-                    var data1 = [1,1];
+                    var data1 = [1, 1];
 
-                    var svg = d3.select("svg"),
-                        width = svg.attr("width"),
-                        height = svg.attr("height"),
+                    var svg1 = d3.select("#pie_1"),
+                        width = svg1.attr("width"),
+                        height = svg1.attr("height"),
                         radius = Math.min(width, height) / 2,
-                        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                        g1 = svg1.append("g").attr("transform", "translate(" + width / 4 + "," + height / 4 + ")");
 
-                    var color = d3.scaleOrdinal(['#4daf4a','#377eb8']);
-                    
+                    var color = d3.scaleOrdinal(['#4daf4a', '#377eb8']);
+
                     function change1() {
                         var pie1 = d3.pie();
 
                         var arc1 = d3.arc()
-                                    .innerRadius(0)
-                                    .outerRadius(100);
+                            .innerRadius(0)
+                            .outerRadius(100);
 
-                        var arcs1 = g.selectAll("arc")
-                                    .data(pie1(data1))
-                                    .enter()
-                                    .append("g")
-                                    .attr("class", "arc")
+                        var arcs1 = g1.selectAll("arc")
+                            .data(pie1(data1))
+                            .enter()
+                            .append("g")
+                            .attr("class", "arc");
 
                         arcs1.append("path")
-                            .attr("fill", function(d, i) {
+                            .attr("fill", function (d, i) {
                                 return color(i);
                             })
                             .attr("d", arc1);
                     }
 
                     function bye_button1() {
-                        sw_more.style.display="none";
-                        sw_less.style.display="none";
+                        sw_more.style.display = "none";
+                        sw_less.style.display = "none";
                     }
 
                     d3.select("button#sw_more")
-                        .on("click", function() {
+                        .on("click", function () {
                             data1[0]++;
                             bye_button1();
                             change1();
-                        })
+                        });
                     d3.select("button#sw_less")
-                        .on("click", function() {
+                        .on("click", function () {
                             data1[1]++;
                             bye_button1();
                             change1();
                         })
-                    
-                    
+
 
                 </script>
             </div>
         </div>
         <div class="row align-items-center graphical_content">
-            <div class="col-8" style="text-align: center">
+            <div class="col-7" style="text-align: center">
                 <h3>Ticketing Patterns</h3>
                 <p>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer
                     colors indicate a higher density of tickets.</p>
-                <embed src="cites_legend_h.png" width="500px" height="100%"=>
+                <embed src="cites_legend_h.png" width="500px" height="100%"
+                =>
                 <embed src="tickets_per_mile.html" width="100%" height="500px">
             </div>
+            <div class="col-1"></div>
             <div class="col-4">
-                <h5>Has your street received more or fewer tickets than you originally thought?</h5>
-                
-                <div class="buttons" style="width: 300px; text-align: center;">
-                    <button id="num_more" style="width:160px;">More tickets</button>
-                    <br>
-                    <button id="num_less" style="width:160px;">Fewer tickets</button>
-                </div>
-                
+                <h5 style="color: #006632; font-weight: bold;">What do you think?</h5>
+                <p>Has your street received more or fewer tickets than you originally thought?</p>
+
+                <button class="btn btn-success" id="num_more">More tickets</button>
+                <button class="btn btn-primary" id="num_less">Fewer tickets</button>
+                <svg id="pie_2" width="400" height="400"></svg>
+
                 <script>
-                    var data2 = [1,1];
+                    var data2 = [1, 1];
 
-                    var svg = d3.select("svg"),
-                        width = svg.attr("width"),
-                        height = svg.attr("height"),
+                    var svg2 = d3.select("#pie_2"),
+                        width = svg2.attr("width"),
+                        height = svg2.attr("height"),
                         radius = Math.min(width, height) / 2,
-                        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                        g2 = svg2.append("g").attr("transform", "translate(" + width / 4 + "," + height / 4 + ")");
 
-                    var color = d3.scaleOrdinal(['#4daf4a','#377eb8']);
-                    
+                    var color = d3.scaleOrdinal(['#4daf4a', '#377eb8']);
+
                     function change2() {
                         var pie2 = d3.pie();
 
                         var arc2 = d3.arc()
-                                    .innerRadius(0)
-                                    .outerRadius(100);
+                            .innerRadius(0)
+                            .outerRadius(100);
 
-                        var arcs2 = g.selectAll("arc")
-                                    .data(pie2(data2))
-                                    .enter()
-                                    .append("g")
-                                    .attr("class", "arc")
+                        var arcs2 = g2.selectAll("arc")
+                            .data(pie2(data2))
+                            .enter()
+                            .append("g")
+                            .attr("class", "arc")
 
                         arcs2.append("path")
-                            .attr("fill", function(d, i) {
+                            .attr("fill", function (d, i) {
                                 return color(i);
                             })
                             .attr("d", arc2);
                     }
 
                     function bye_button2() {
-                        num_more.style.display="none";
-                        num_less.style.display="none";
+                        num_more.style.display = "none";
+                        num_less.style.display = "none";
                     }
 
                     d3.select("button#num_more")
-                        .on("click", function() {
+                        .on("click", function () {
                             data2[0]++;
                             bye_button2();
                             change2();
                         })
                     d3.select("button#num_less")
-                        .on("click", function() {
+                        .on("click", function () {
                             data2[1]++;
                             bye_button2();
                             change2();
                         })
-                    
-                    
 
                 </script>
             </div>
@@ -482,11 +480,30 @@
     <h4>Have a question about the street sweeping schedule in your area?</h4>
     <h4>Do you know that you can request to change the street sweeping schedule, to increase or decrease street sweeping
         frequency? </h4>
+    <div class="container graphic">
+        <div class="row align-items-center">
+            <div class="col-12 col-sm-6 justify-content-center text-center">
+                <img src="images/broom.png" style="max-height: 85%">
+                <p class="graphical_content">For more information and services about street sweeping</p>
+                <button type="button" class="btn btn-light btn-lg"
+                        onclick="location.href='https://www.oaklandca.gov/topics/street-sweeping'">View More</button>
+            </div>
+            <div class="col-12 col-sm-6 justify-content-center text-center">
+                <img src="images/calendars.png" style="max-height: 85%">
+                <p class="graphical_content">To request a street sweeping schedule change</p>
+                <button type="button" class="btn btn-light btn-lg"
+                        onclick="location.href='https://www.oaklandca.gov/topics/street-sweeping-schedule-change'">View
+                    More
+                </button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="footer section_block">
     <p>SweepSmart 2020</p>
     <p>UC-Berkeley School of Information, BCOT Team</p>
+    <p>Created by: Yi Gai, Jessie Lyu, Anna Waldo, Tobey Yang</p>
     <p>All Rights Reserved</p>
 </div>
 </body>
