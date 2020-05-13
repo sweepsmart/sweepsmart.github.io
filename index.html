@@ -316,22 +316,77 @@
 <div id="maps" class="section_block">
     <h5><span class="header">4. Tickets Patterns</span></h5>
     <p>Is there any correlations between street sweeping frequency and the number of tickets? Can we find any patterns
-        between them? Let's take a look at two maps of street sweeping frequency and ticket density</p>
+        between them? Let's take a look at two maps of street sweeping frequency and ticket density.</p>
     <div class="container graphic">
         <div class="row align-items-center">
             <div class="col-8" style="text-align: center">
                 <h3>Sweeping Frequency</h3>
                 <p>This map shows the monthly frequency of sweeping routes. Notice certain regions tend to have more
-                    frequently
-                    scheduled sweeping.<br>
+                    frequently scheduled sweeping.<br>
                     Click around to explore the different neighborhoods!</p>
-                
+                <embed src="month_freq_h.png" width="650px" height="100%">
                 <embed src="monthly_freq.html" width="100%" height="500px">
             </div>
             <div class="col-4">
-                <embed src="mo_freq_legend.png" height="230px">
-                <h4>What do you think?</h4>
-                <p>My street is swept too often.</p>
+                <h5>Is your street swept more or less often than you originally thought?</h5>
+                <div class="buttons" style="width: 300px; text-align: center;">
+                    <button id="sw_more" style="width:160px;">More often</button>
+                    <br>
+                    <button id="sw_less" style="width:160px;">Less often</button>
+                </div>
+
+                <script>
+                    var data1 = [1,1];
+
+                    var svg = d3.select("svg"),
+                        width = svg.attr("width"),
+                        height = svg.attr("height"),
+                        radius = Math.min(width, height) / 2,
+                        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                    var color = d3.scaleOrdinal(['#4daf4a','#377eb8']);
+                    
+                    function change1() {
+                        var pie1 = d3.pie();
+
+                        var arc1 = d3.arc()
+                                    .innerRadius(0)
+                                    .outerRadius(100);
+
+                        var arcs1 = g.selectAll("arc")
+                                    .data(pie1(data1))
+                                    .enter()
+                                    .append("g")
+                                    .attr("class", "arc")
+
+                        arcs1.append("path")
+                            .attr("fill", function(d, i) {
+                                return color(i);
+                            })
+                            .attr("d", arc1);
+                    }
+
+                    function bye_button1() {
+                        sw_more.style.display="none";
+                        sw_less.style.display="none";
+                    }
+
+                    d3.select("button#sw_more")
+                        .on("click", function() {
+                            data1[0]++;
+                            bye_button1();
+                            change1();
+                        })
+                    d3.select("button#sw_less")
+                        .on("click", function() {
+                            data1[1]++;
+                            bye_button1();
+                            change1();
+                        })
+                    
+                    
+
+                </script>
             </div>
         </div>
         <div class="row align-items-center graphical_content">
@@ -339,12 +394,70 @@
                 <h3>Ticketing Patterns</h3>
                 <p>Below we see the tickets issued during a month in 2019, color coded by tickets per mile. Warmer
                     colors indicate a higher density of tickets.</p>
+                <embed src="cites_legend_h.png" width="500px" height="100%"=>
                 <embed src="tickets_per_mile.html" width="100%" height="500px">
             </div>
             <div class="col-4">
-                <embed src="tickets_legend.png" height="150px">
-                <h4>What do you think?</h4>
-                <p>My neighborhood receive more street sweeping tickets than I thought.</p>
+                <h5>Has your street received more or fewer tickets than you originally thought?</h5>
+                
+                <div class="buttons" style="width: 300px; text-align: center;">
+                    <button id="num_more" style="width:160px;">More tickets</button>
+                    <br>
+                    <button id="num_less" style="width:160px;">Fewer tickets</button>
+                </div>
+                
+                <script>
+                    var data2 = [1,1];
+
+                    var svg = d3.select("svg"),
+                        width = svg.attr("width"),
+                        height = svg.attr("height"),
+                        radius = Math.min(width, height) / 2,
+                        g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+                    var color = d3.scaleOrdinal(['#4daf4a','#377eb8']);
+                    
+                    function change2() {
+                        var pie2 = d3.pie();
+
+                        var arc2 = d3.arc()
+                                    .innerRadius(0)
+                                    .outerRadius(100);
+
+                        var arcs2 = g.selectAll("arc")
+                                    .data(pie2(data2))
+                                    .enter()
+                                    .append("g")
+                                    .attr("class", "arc")
+
+                        arcs2.append("path")
+                            .attr("fill", function(d, i) {
+                                return color(i);
+                            })
+                            .attr("d", arc2);
+                    }
+
+                    function bye_button2() {
+                        num_more.style.display="none";
+                        num_less.style.display="none";
+                    }
+
+                    d3.select("button#num_more")
+                        .on("click", function() {
+                            data2[0]++;
+                            bye_button2();
+                            change2();
+                        })
+                    d3.select("button#num_less")
+                        .on("click", function() {
+                            data2[1]++;
+                            bye_button2();
+                            change2();
+                        })
+                    
+                    
+
+                </script>
             </div>
         </div>
     </div>
