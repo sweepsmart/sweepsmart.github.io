@@ -36,6 +36,7 @@ span.icon img {
 
 .footer {
     text-align: center;
+    font-size: small;
 }
 
 .highlight {
@@ -118,4 +119,8 @@ span.icon img {
 #isotype_chart {
     align-items: center;
     text-align: center;
+}
+
+#conclusion button {
+    margin-top: 5%;
 }
