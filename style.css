@@ -27,6 +27,21 @@ span.icon img {
     width: auto;
 }
 
+/* Bootstrap Override */
+.btn-outline-success {
+    border-color: #006632 !important;
+    color: #006632 !important;
+}
+
+.btn-outline-success:hover {
+    background-color: #006632 !important;
+    color: #ffffff !important;
+}
+
+button.poll_btn {
+    margin: 5% !important;
+}
+
 .header {
     color: #006632;
     font-weight: bold;
@@ -48,10 +63,6 @@ span.icon img {
 .highlight-secondary {
     font-size:36px;
     font-weight: bold;
-}
-
-.graphic {
-    padding-top: 10%;
 }
 
 .graphical_content {
@@ -104,6 +115,13 @@ span.icon img {
     color: #9E9E9E;
 }
 
+span.legend {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    margin: 0 10px;
+}
+
 
 /******************************** end of section 2 **************************************/
 
@@ -124,4 +142,9 @@ span.icon img {
 
 #conclusion button {
     margin-top: 5%;
+}
+
+#legend_block_1, #legend_block_2 {
+    display: none;
+    font-size: small;
 }
