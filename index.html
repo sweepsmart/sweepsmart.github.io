@@ -28,10 +28,57 @@
 
     <!-- Document script & stylesheet -->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
 </head>
 
 <body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.14.5/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyAWyTnF5M64rRPFJTzB9w0ZWYfq1M4Eo-4",
+        authDomain: "sweep-smart.firebaseapp.com",
+        databaseURL: "https://sweep-smart.firebaseio.com",
+        projectId: "sweep-smart",
+        storageBucket: "sweep-smart.appspot.com",
+        messagingSenderId: "29730107897",
+        appId: "1:29730107897:web:78bc5e5c54b84e7fe3cd28",
+        measurementId: "G-6CW113RG53"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    //firebase.analytics();
+    var database = firebase.database();
+    var frequency_yes;
+    var frequency_no;
+    var ticket_yes;
+    var ticket_no;
+
+
+    var writeUserData = function (question, num_yes, num_no) {
+        database.ref(question).set({
+            yes: num_yes,
+            no: num_no
+        });
+    };
+    var readUserData = function () {
+        database.ref().once("value").then(function(snapshot) {
+            console.log(JSON.stringify(snapshot));
+            frequency_yes = snapshot.child("frequency/yes").val();
+            frequency_no = snapshot.child("frequency/no").val();
+            ticket_yes = snapshot.child("ticket/yes").val();
+            ticket_no = snapshot.child("ticket/no").val();
+        })
+    };
+
+    readUserData();
+</script>
 <div id="splash">
     <h1>STREET SWEEPING HELPS KEEP THE CITY OF OAKLAND <span class="highlight">CLEAN</span>!</h1>
 </div>
@@ -353,8 +400,8 @@
                 </div>
 
                 <script>
-                    var data1 = [1, 1];
-                    // var data_labels1 = ["More","Less"];
+
+                    var data1 = [];
 
                     var svg1 = d3.select("#pie_1"),
                         width = svg1.attr("width"),
@@ -401,13 +448,19 @@
 
                     d3.select("button#sw_more")
                         .on("click", function () {
-                            data1[0]++;
+                            frequency_yes++;
+                            data1[0] = frequency_yes;
+                            data1[1] = frequency_no;
+                            writeUserData("frequency", frequency_yes, frequency_no);
                             bye_button1();
                             change1();
                         });
                     d3.select("button#sw_less")
                         .on("click", function () {
-                            data1[1]++;
+                            frequency_no++;
+                            data1[0] = frequency_yes;
+                            data1[1] = frequency_no;
+                            writeUserData("frequency", frequency_yes, frequency_no);
                             bye_button1();
                             change1();
                         })
@@ -440,8 +493,7 @@
 <!--                <svg id="answer2"></svg>-->
                 
                 <script>
-                    var data2 = [1, 1];
-                    // var data_labels2 = ["More","Fewer"];
+                    var data2 = [];
 
                     var svg2 = d3.select("#pie_2"),
                         width = svg2.attr("width"),
@@ -489,13 +541,19 @@
 
                     d3.select("button#num_more")
                         .on("click", function () {
-                            data2[0]++;
+                            ticket_yes++;
+                            data2[0] = ticket_yes;
+                            data2[1] = ticket_no;
+                            writeUserData("ticket", ticket_yes, ticket_no);
                             bye_button2();
                             change2();
-                        })
+                        });
                     d3.select("button#num_less")
                         .on("click", function () {
-                            data2[1]++;
+                            ticket_no++;
+                            data2[0] = ticket_yes;
+                            data2[1] = ticket_no;
+                            writeUserData("ticket", ticket_yes, ticket_no);
                             bye_button2();
                             change2();
                         })
